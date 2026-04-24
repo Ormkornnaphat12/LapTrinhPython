@@ -1,0 +1,7 @@
+print('--- e) Nhan 2 doi so la so thuc d,r la chieu dai va chieu rong cua hinh chu nhat. Cho biet chu vi cua hinh chu nhat ---')
+chuvi_hcn = lambda d, r: 2*(d+r)
+dai = input('Nhap chieu dai = ')
+d = float(dai)
+rong = input('Nhap vao chieu rong = ')
+r = float(rong)
+print('Chu vi cua hinh chu nhat la: ',chuvi_hcn(dai,rong))
