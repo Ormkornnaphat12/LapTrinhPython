@@ -1,0 +1,75 @@
+import math
+print ("BÀI 18: LAMBDA KIEM TRA SO ")
+#a) So than thien
+so_than_thien = lambda n: math.gcd(n, int(str(n)[::-1])) == 1
+#b) So chinh phuong
+so_chinh_phuong = lambda n: int(math.sqrt(n)) ** 2 == n if n >= 0 else False
+#c) So dong nhat su dung all va any
+so_dong_nhat_all = lambda n: n > 0 and all(char == str(n)[0] for char in str(n))
+#d) So hoan thien
+so_hoan_thien = lambda n: n > 1 and sum(i + (n // i if i * i != n and i != 1 else 0 ) for i in range(1, int(math.sqrt(n)) + 1) if n % i == 0) == n
+#e) So phong phu
+so_phong_phu = lambda n: n > 1 and sum(i + (n // i if i * i != n and i != 1 else 0) for i in range(1, int(math.sqrt(n)) + 1) if n % i == 0) > n
+#f) so tang dan tu trai sang phai su dung all
+so_tang_dan = lambda n:  all(str(n)[i] <= str(n)[i+1] for i in range(len(str(n)) - 1))
+#g) So ArmStrong 
+soArmstrong = lambda n: n > 0 and sum(int(char) ** len(str(n)) for char in str(n)) == n
+#h) So nguyen to --------
+# cach 3: neu n <= 1 hoac n chia chan cho bat ky so nao trong khoang tu 2 den can bac haii cua n thi n khong la so nguyen to, nguoc lai n la so nguyen to.
+sNT3 = lambda n: n > 1 and not any(n % i == 0 for i in range(2, int(math.sqrt(n)) + 1))
+#i) So Palindrome (or palindromic)
+soPalindrome = lambda n:  str(n) == str(n)[::-1]
+#j) So nguyen to Panlindrome
+sntPalindrome = lambda n: str(n) == str(n)[::-1] and (n > 1 and not any (n % i == 0 for i in range(2, int(math.sqrt(n)) + 1)))
+#k) So loc phat
+so_loc_phat = lambda n: all(char in '68' for char in str(n))
+#l) So loc phat Palindrome
+slp_palindrome = lambda n: all(char in '68' for char in str(n)) and str(n) == str(n)[::-1]
+
+rs_a, rs_b, rs_c, rs_d, rs_e, rs_f, rs_g, rs_h, rs_i, rs_j, rs_k, rs_l = [], [], [], [], [], [], [], [], [], [], [], []
+print("DANG PHAN TICH KET QUA TU 1 - 1.000.000")
+for i in range (1, 1000001):
+    if so_than_thien(i):
+        rs_a.append(i)
+    if so_chinh_phuong(i):
+        rs_b.append(i)
+    if so_dong_nhat_all(i):
+        rs_c.append(i)
+    if so_hoan_thien(i):
+        rs_d.append(i)
+    if so_phong_phu(i):
+        rs_e.append(i)
+    if so_tang_dan(i):
+        rs_f.append(i)
+    if soArmstrong(i):
+        rs_g.append(i)
+    if sNT3(i):
+        rs_h.append(i)
+    if soPalindrome(i):
+        rs_i.append(i)
+    if sntPalindrome(i):
+        rs_j.append(i)
+    if so_loc_phat(i):
+        rs_k.append(i)
+    if slp_palindrome(i):
+        rs_l.append(i)
+print("\n" + "=" * 70)
+print ("KET QUA THOA DIEU KIEN. QUY KHACH VUI LONG CHO DOI TRONG GIAY LAT DE HIEN THI KET QUA")
+print("KET QUA CHUA HIEN THI VAN PHAI CHO !")
+print("=" * 70)
+print (f"a) So than thien : Dem duoc {len(rs_a)} so.\n 10 so dau: {rs_a[::10]}..") 
+print (f"\n b) So chinh phuong: Dem duoc {len(rs_b)} so. \n 10 so dau: {rs_b[::10]}... ")
+print(f"\nc) So dong nhat : Dem duoc {len(rs_c)} so.\n   Danh sach day du: {rs_c}")
+print(f"\nd) So hoan thien : Dem duoc {len(rs_d)} so.\n   Danh sach day du: {rs_d}")
+print(f"\ne) So phong phu : Dem duoc {len(rs_e)} so.\n   10 so dau: {rs_e[:10]}...")
+print(f"\nf) So tang dan : Dem duoc {len(rs_f)} so.\n   10 so dau: {rs_f[:10]}...")
+print(f"\ng) So Armstrong : Dem duoc {len(rs_g)} so.\n   Danh sach day du: {rs_g}")
+print(f"\nh) So nguyen to : Dem duoc {len(rs_h)} so.\n   10 so dau: {rs_h[:10]}...")
+print(f"\ni) So Palindrome : Dem duoc {len(rs_i)} so.\n   10 so dau: {rs_i[:10]}...")
+print(f"\nj) So nguyen to Palindrome : Dem duoc {len(rs_j)} so.\n   10 so dau: {rs_j[:10]}...")
+print(f"\nk) So loc phat : Dem duoc {len(rs_k)} so.\n   10 so dau: {rs_k[:10]}...")
+print(f"\nl) So loc phat Palindrome : Dem duoc {len(rs_l)} so.\n   Danh sach day du: {rs_l}")
+print("=" * 70)
+print ("CAM ON QUY KHACH DA CHO DOI KET QUA DA DUOC HIEN THI. THANK YOU SO MUCH")
+print("MERCI")
+print("SALAMAT PO")
